@@ -1,8 +1,0 @@
-def Andar:
-    and = 0
-    for i in range (10):
-        and += 1
-        
-    return and
-    
-print (Andar())
