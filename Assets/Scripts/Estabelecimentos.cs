@@ -32,4 +32,9 @@ public class Estabelecimentos : MonoBehaviour
         return andar;
     }
 
+    public void TrocarPos(Transform transform)
+    {
+        this.transform.position = transform.position;
+    }
+
 }
