@@ -18,23 +18,5 @@ public class Estabelecimentos : MonoBehaviour
     {
         
     }
-
-
-    // gets and sets
-
-    public void SetAndar(int andar)
-    {
-        this.andar = andar;
-    }
     
-    public int GetAndar()
-    {
-        return andar;
-    }
-
-    public void TrocarPos(Transform transform)
-    {
-        this.transform.position = transform.position;
-    }
-
 }

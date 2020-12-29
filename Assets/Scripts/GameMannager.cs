@@ -61,8 +61,11 @@ public class GameMannager : MonoBehaviour
 
         //seleciona os blocos para operar a troca, então se a lista completar dois objs executa a troca.
         if (Input.GetKeyDown(KeyCode.Space) && SelectedObj.Count < 2) SelectedObj.Add(ContControle);
-        else if (SelectedObj.Count >= 2) OperarTroca(Listpredio1);
-
+        else if (SelectedObj.Count >= 2)
+        {
+            if (Listpredio1[SelectedObj[0]].transform.position == Listpredio1[SelectedObj[1]].transform.position) SelectedObj.Clear();
+            else OperarTroca(Listpredio1);
+        }
     }
 
     // procura os elementos filhos do predio1 ou 2 e armazena na lista.
@@ -82,21 +85,16 @@ public class GameMannager : MonoBehaviour
 
     private void OperarTroca(List<GameObject> predio)
     {
-        Transform temptransform = transform; // o temptransform é igual a transform pois ele precisa de uma iniciação, e como a classe Transform é protegida não consigo da new Transform().
-        temptransform.position = predio[SelectedObj[0]].GetComponent<Transform>().position; 
+        Vector3 tempPosition = predio[SelectedObj[0]].transform.position;
 
-        // chama o metodo de troca de posicao de cada bloco.
-        predio[SelectedObj[0]].GetComponent<Estabelecimentos>().TrocarPos(predio[SelectedObj[1]].GetComponent<Transform>());
-        predio[SelectedObj[1]].GetComponent<Estabelecimentos>().TrocarPos(temptransform);
+        predio[SelectedObj[0]].transform.position = predio[SelectedObj[1]].transform.position;
+        predio[SelectedObj[1]].transform.position = tempPosition;
 
-        // necessaria para fazer a troca de pocição dos blocos na lista
         GameObject tempobj = predio[SelectedObj[0]];
 
-        // reorganiza a ordem da fila.
         Listpredio1[SelectedObj[0]] = predio[SelectedObj[1]];
         Listpredio1[SelectedObj[1]] = tempobj;
 
-        //limpa a lista de objetos selecionados, pronto para a proxima seleção.
         SelectedObj.Clear();
     }
 
