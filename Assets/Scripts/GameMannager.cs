@@ -11,7 +11,7 @@ public class GameMannager : MonoBehaviour
 
     // variaveis uteis para a parte de inputs
     private int ContControle; // seleciona a posição na lista q vc vai pegar o obj.
-    private List<GameObject> SelectedObj = new List<GameObject>(); // guarda os dois obj q serão feito a troca de posicao.
+    private List<int> SelectedObj = new List<int>(); // guarda os dois indices do obj q serão feito a troca de posicao.
     private GameObject cursortest; // um cursor somente pra deixar o processo da troca mais visivel, não necessariamente usaremos um cursor.
 
   
@@ -60,8 +60,8 @@ public class GameMannager : MonoBehaviour
         }
 
         //seleciona os blocos para operar a troca, então se a lista completar dois objs executa a troca.
-        if (Input.GetKeyDown(KeyCode.Space) && SelectedObj.Count < 2) SelectedObj.Add(Listpredio1[ContControle]);
-        else if (SelectedObj.Count >= 2) OperarTroca();
+        if (Input.GetKeyDown(KeyCode.Space) && SelectedObj.Count < 2) SelectedObj.Add(ContControle);
+        else if (SelectedObj.Count >= 2) OperarTroca(Listpredio1);
 
     }
 
@@ -80,22 +80,21 @@ public class GameMannager : MonoBehaviour
 
     }
 
-    private void OperarTroca()
+    private void OperarTroca(List<GameObject> predio)
     {
         Transform temptransform = transform; // o temptransform é igual a transform pois ele precisa de uma iniciação, e como a classe Transform é protegida não consigo da new Transform().
-        temptransform.position = SelectedObj[0].GetComponent<Transform>().position; 
+        temptransform.position = predio[SelectedObj[0]].GetComponent<Transform>().position; 
 
         // chama o metodo de troca de posicao de cada bloco.
-        SelectedObj[0].GetComponent<Estabelecimentos>().TrocarPos(SelectedObj[1].GetComponent<Transform>());
-        SelectedObj[1].GetComponent<Estabelecimentos>().TrocarPos(temptransform);
+        predio[SelectedObj[0]].GetComponent<Estabelecimentos>().TrocarPos(predio[SelectedObj[1]].GetComponent<Transform>());
+        predio[SelectedObj[1]].GetComponent<Estabelecimentos>().TrocarPos(temptransform);
 
-        // criei essas variaveis so para as linhas a seguir n ficarem muito poluidas.
-        int indexS1 = Listpredio1.IndexOf(SelectedObj[0]);
-        int indexS2 = Listpredio1.IndexOf(SelectedObj[1]);
+        // necessaria para fazer a troca de pocição dos blocos na lista
+        GameObject tempobj = predio[SelectedObj[0]];
 
         // reorganiza a ordem da fila.
-        Listpredio1[indexS1] = SelectedObj[1];
-        Listpredio1[indexS2] = SelectedObj[0];
+        Listpredio1[SelectedObj[0]] = predio[SelectedObj[1]];
+        Listpredio1[SelectedObj[1]] = tempobj;
 
         //limpa a lista de objetos selecionados, pronto para a proxima seleção.
         SelectedObj.Clear();
