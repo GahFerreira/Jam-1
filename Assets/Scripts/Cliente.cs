@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Cliente : MonoBehaviour
 {
-    [SerializeField] private string id;
+    [SerializeField] private string id; // id do cliente, basicamente pra interações especiais, tipo o Nerd Gordo no Spa
 
     [SerializeField] private float velocidade;
-    [SerializeField] private List<float> estrelasAcerto, estrelasErro, estrelasEspecial;
-    public char idEstabelecimentoPredileto;
+    [SerializeField] private List<float> estrelasAcerto, estrelasErro, estrelasEspecial;    // Possibilidades de estrelas para dar em situações distintas
+    public char idEstabelecimentoPredileto; // Qual o balãozinho vai aparecer na cabeça do cliente
 
-    private Avaliacoes av;
+    private Avaliacoes av;  // Para o Maratonista
 
     void Start()
     {
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, 15f);   // Ainda em testes
 
         av = GameObject.FindWithTag("GameController").GetComponent<Avaliacoes>();
     }
@@ -26,12 +26,12 @@ public class Cliente : MonoBehaviour
 
     void andar()
     {
-        transform.position = transform.position + new Vector3(velocidade * Time.deltaTime, 0, 0);
+        transform.position = transform.position + new Vector3(velocidade * Time.deltaTime, 0);   // Move um pouco pra direita por frame
     }
 
     void OnTriggerEnter2D (Collider2D other) // Algoritmo para quando o cliente entrar no prédio
     {
-        GetComponent<BoxCollider2D>().isTrigger = false;
+        GetComponent<BoxCollider2D>().isTrigger = false;    // Para cada cliente só colidir uma vez
 
         if (other.tag == "Estabelecimento")
         {
@@ -68,7 +68,7 @@ public class Cliente : MonoBehaviour
                 else if (av.avaliacao < 2) avaliacaoFinal += 0.5f;
             }
 
-            avaliacaoFinal += est.variacaoEspecial; // Adiciona um buff / nerf do estabelecimento
+            avaliacaoFinal += est.variacaoEspecial; // Adiciona um buff / nerf do estabelecimento, caso haja algum
 
             if (avaliacaoFinal < 0) avaliacaoFinal = 0f;    // Caso a nota, por algum motivo, der menor que 0, ela fica como 0.
             else if (avaliacaoFinal > 5) avaliacaoFinal = 5f;   // Ou 5, se der maior que 5.

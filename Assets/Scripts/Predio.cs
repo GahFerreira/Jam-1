@@ -4,51 +4,49 @@ using UnityEngine;
 
 public class Predio : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> estabelecimentosParaInstanciar;
-    public List<GameObject> estabelecimentos;
-    private List<char> estabelecimentosParaAdicionar;
+    [SerializeField] private List<GameObject> estabelecimentosParaInstanciar;   // Lista de Prefabs de Estabelecimentos
+    public List<GameObject> estabelecimentos;   // Os estabelecimentos que, de fato, fazem parte do prédio
+    private List<char> estabelecimentosParaAdicionar;   // Lista de id dos estabelecimentos que serão adicionados em algum momento
 
     private GameManager gm;
 
     void Awake()
     {
-        estabelecimentosParaAdicionar = new List<char>();
-        estabelecimentosParaAdicionar.Add('A');
-        estabelecimentosParaAdicionar.Add('F');
-        estabelecimentosParaAdicionar.Add('L');
-        estabelecimentosParaAdicionar.Add('R');
+        estabelecimentosParaAdicionar = new List<char>();   // Aqui a lista de id é criada
+        estabelecimentosParaAdicionar.Add('A'); // Os estabelecimentos que serão posteriormente adicionados ao prédio são adicionados aqui primeiro
+        estabelecimentosParaAdicionar.Add('F'); // Essa lista existe para que não haja dois estabelecimentos iguais no mesmo prédio
+        estabelecimentosParaAdicionar.Add('L'); // Pois quando ele for adicionado ao prédio de fato, ele sai dessa lista
+        estabelecimentosParaAdicionar.Add('R'); // O Spa, no entanto, é caso especial, e é sempre adicionado no dia 2
     }
 
     void Start()
     {
-        GameObject gameManager = GameObject.FindWithTag("GameController");
+        gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
 
-        gm = gameManager.GetComponent<GameManager>();
-
-        InstanciarPredio();
+        InstanciarPredio(); 
     }
 
-    public void InstanciarPredio ()
+    public void InstanciarPredio () // Quando o Prefab Prédio é instanciado (este script está ligado nele), os estabelecimentos dele são instanciados por aqui
     {
         gm.predio.Add(this);
 
-        for (int i = 0; i < gm.numeroAndares(); i++)
+        for (int i = 0; i < gm.numeroAndares(); i++)    // Instancia-se estabelecimentos de acordo com o dia (ou fase) atual
         {
-            int escolhaAleatoria = Random.Range(0, estabelecimentosParaAdicionar.Count);
+            int escolhaAleatoria = Random.Range(0, estabelecimentosParaAdicionar.Count);    // Escolhe-se aleatoriamente os estabelecimentos que vai adicionar
 
-            GameObject gO = Instantiate(estabelecimentosParaInstanciar[idParaIndice(estabelecimentosParaAdicionar[escolhaAleatoria])], transform);
+            GameObject gO = Instantiate(estabelecimentosParaInstanciar[idParaIndice(estabelecimentosParaAdicionar[escolhaAleatoria])], transform);  // Aqui instancia-se um estabelecimento, já colocando ele como filho do Prédio
 
-            gO.transform.position += new Vector3(0, (float) (estabelecimentos.Count * 2.1875), 0);
+            gO.transform.position += new Vector3(0, (float) (estabelecimentos.Count * 2.1875), 0);  // Aqui corrigi-se a altura do estabelecimento instanciado, baseado em quantos andares já tem
 
-            estabelecimentos.Add(gO);
+            estabelecimentos.Add(gO);   // Aqui adiciona-se o estabelecimento instanciado a uma lista que representa o prédio
 
-            estabelecimentosParaAdicionar.RemoveAt(escolhaAleatoria);
+            estabelecimentosParaAdicionar.RemoveAt(escolhaAleatoria);   // Aqui remove o id do estabelecimento instanciado da lista de estabelecimentos a se adicionar no futuro
         }
     }
 
-    public void adicionarAndar()
+    public void adicionarAndar()    // Função para, possivelmente, adicionar um novo andar (usado quando clicar em 'Continuar' no menu)
     {
-        if (gm.getDia() == 2)
+        if (gm.getDia() == 2)   // Se for o segundo dia, adiciona-se o Spa
         {
             GameObject gO = Instantiate(estabelecimentosParaInstanciar[idParaIndice('S')], transform);
 
@@ -57,7 +55,7 @@ public class Predio : MonoBehaviour
             estabelecimentos.Add(gO);
         }
 
-        else if (estabelecimentosParaAdicionar.Count > 0)
+        else if (estabelecimentosParaAdicionar.Count > 0)   // Em outros dias, adiciona-se o estabelecimento que falta (sabe-se qual é, pois tem guardado em estabelecimentosParaAdicionar)
         {
             int escolhaAleatoria = Random.Range(0, estabelecimentosParaAdicionar.Count);
 
@@ -69,14 +67,14 @@ public class Predio : MonoBehaviour
         }
     }
 
-    public void removerAndar()
+    public void removerAndar()  // Função para remover um estabelecimento
     {
-        estabelecimentosParaAdicionar.Add(estabelecimentos[estabelecimentos.Count - 1].GetComponent<Estabelecimento>().id);
+        estabelecimentosParaAdicionar.Add(estabelecimentos[estabelecimentos.Count - 1].GetComponent<Estabelecimento>().id); // Daí coloca de novo o id do estabelecimento removido na lista, para adicioná-lo depois de novo
 
         estabelecimentos.RemoveAt(estabelecimentos.Count - 1);
     }
 
-    public void randomizarAndares()
+    public void randomizarAndares() // Essa função, basicamente, randomiza a ordem dos andares (ainda não usei ela, mas a ideia é randomizar sempre que for iniciar um novo nível)
     {
         int aleatorio;
 
@@ -90,7 +88,7 @@ public class Predio : MonoBehaviour
         }
     }
 
-    public void operarTroca(int andar1, int andar2)
+    public void operarTroca(int andar1, int andar2) // Função simples pra troca de andares
     {
         Vector3 aux = estabelecimentos[andar1].transform.position;
         estabelecimentos[andar1].transform.position = estabelecimentos[andar2].transform.position;
@@ -101,8 +99,8 @@ public class Predio : MonoBehaviour
         estabelecimentos[andar2] = aux2;
     }
 
-    private int idParaIndice(char id)
-    {
+    private int idParaIndice(char id)   // Essa função associa um id a um índice
+    {                                   // Esse id é o que está na lista de estabelecimentos para adicionar depois, e o índice é o que está na lista de estabelecimentos para instanciar (prefabs)
         switch (id)
         {
             case 'A': return 0;

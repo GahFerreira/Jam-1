@@ -5,7 +5,7 @@ using UnityEngine;
 public class Estabelecimento : MonoBehaviour
 {
     public char id;
-    public float variacaoEspecial;
+    public float variacaoEspecial;  // Para o caso especial de um buff ou nerf naquele estabelecimento específico
 
     void Awake ()
     {
