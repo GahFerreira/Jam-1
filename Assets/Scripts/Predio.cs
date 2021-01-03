@@ -7,6 +7,7 @@ public class Predio : MonoBehaviour
     [SerializeField] private List<GameObject> estabelecimentosParaInstanciar;   // Lista de Prefabs de Estabelecimentos
     public List<GameObject> estabelecimentos;   // Os estabelecimentos que, de fato, fazem parte do prédio
     private List<char> estabelecimentosParaAdicionar;   // Lista de id dos estabelecimentos que serão adicionados em algum momento
+    [SerializeField] private GameObject fumacinha;
 
     private GameManager gm;
 
@@ -90,6 +91,9 @@ public class Predio : MonoBehaviour
 
     public void operarTroca(int andar1, int andar2) // Função simples pra troca de andares
     {
+        GameObject f1 = Instantiate(fumacinha, estabelecimentos[andar1].transform);
+        GameObject f2 = Instantiate(fumacinha, estabelecimentos[andar2].transform);
+
         Vector3 aux = estabelecimentos[andar1].transform.position;
         estabelecimentos[andar1].transform.position = estabelecimentos[andar2].transform.position;
         estabelecimentos[andar2].transform.position = aux;
@@ -97,6 +101,10 @@ public class Predio : MonoBehaviour
         GameObject aux2 = estabelecimentos[andar1];
         estabelecimentos[andar1] = estabelecimentos[andar2];
         estabelecimentos[andar2] = aux2;
+
+        Destroy(f1, 1f);
+        Destroy(f2, 1f);
+
     }
 
     private int idParaIndice(char id)   // Essa função associa um id a um índice
