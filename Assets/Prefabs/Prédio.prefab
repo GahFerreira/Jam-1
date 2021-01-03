@@ -51,6 +51,8 @@ MonoBehaviour:
   - {fileID: 2228417548445407884, guid: 46ea1e50debad904abd8a4acfa0766e1, type: 3}
   - {fileID: 5732423504855965077, guid: c0c5ed1bcd758b7469ccaf229f5c9d20, type: 3}
   estabelecimentos: []
+  fumacinha: {fileID: 481108408525882960, guid: e1756295129d1a94489db0f878d2c137,
+    type: 3}
 --- !u!114 &674886471594173324
 MonoBehaviour:
   m_ObjectHideFlags: 0

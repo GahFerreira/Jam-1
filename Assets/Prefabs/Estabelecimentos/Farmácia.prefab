@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 379241314177466356}
   - component: {fileID: 540195197590309182}
   - component: {fileID: 8152815775132108807}
+  - component: {fileID: 1276394245843883344}
   m_Layer: 0
   m_Name: "Farm\xE1cia"
   m_TagString: Estabelecimento
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 105770fb5dd413c47b119c72b8852c1d, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: e03bb84d2ed503948a2c895639209e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,3 +124,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 70
   variacaoEspecial: 0
+  distance: 0
+--- !u!95 &1276394245843883344
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2307884585369977324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4aee1305daf7a5c47ab56bf34ea2989c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

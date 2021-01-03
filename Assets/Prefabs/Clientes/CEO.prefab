@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 189426206111429996}
   - component: {fileID: 189426206111429997}
   - component: {fileID: 189426206111429998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CEO
   m_TagString: Cliente
   m_Icon: {fileID: 0}

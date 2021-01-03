@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5024574366082164894}
   - component: {fileID: 5153985629365821012}
   - component: {fileID: 6551488610338408846}
+  - component: {fileID: 1278718317544919197}
   m_Layer: 0
   m_Name: Arcade
   m_TagString: Estabelecimento
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 08966467f6ada6346ad6094a29cc2fca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,3 +124,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 65
   variacaoEspecial: 0
+  distance: 0
+--- !u!95 &1278718317544919197
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989246844802733702}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 59e8c98e4a2c9bf4990ad220f2b0fce6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

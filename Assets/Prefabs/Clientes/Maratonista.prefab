@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4007783013874000117}
   - component: {fileID: 4007783013874000116}
   - component: {fileID: 4007783013874000119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Maratonista
   m_TagString: Cliente
   m_Icon: {fileID: 0}

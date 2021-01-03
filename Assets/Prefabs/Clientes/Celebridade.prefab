@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 868170265625443184}
   - component: {fileID: 868170265625443185}
   - component: {fileID: 868170265625443186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Celebridade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

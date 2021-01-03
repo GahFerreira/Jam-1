@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8933858324056172828}
   - component: {fileID: 8933858324056172829}
   - component: {fileID: 8933858324056172830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fiscal
   m_TagString: Cliente
   m_Icon: {fileID: 0}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7694890295873954701}
   - component: {fileID: 7563162979796505927}
   - component: {fileID: 9070192681482104137}
+  - component: {fileID: 8628906400249962722}
   m_Layer: 0
   m_Name: Spa
   m_TagString: Estabelecimento
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: eeb7e909253dc4f4bbd24b3592f63028, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,3 +124,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 83
   variacaoEspecial: 0
+  distance: 0
+--- !u!95 &8628906400249962722
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5732423504855965077}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 843c6ee894cf1b749af482ab1f8527c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

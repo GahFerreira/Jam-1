@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4784292791128944672}
   - component: {fileID: 4784292791128944673}
   - component: {fileID: 4784292791128944674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Guitarrista
   m_TagString: Cliente
   m_Icon: {fileID: 0}

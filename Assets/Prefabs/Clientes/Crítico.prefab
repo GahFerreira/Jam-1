@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7598245908231963847}
   - component: {fileID: 7598245908231963846}
   - component: {fileID: 7598245908231963845}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Cr\xEDtico"
   m_TagString: Cliente
   m_Icon: {fileID: 0}

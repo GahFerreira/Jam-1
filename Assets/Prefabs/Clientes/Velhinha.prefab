@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 310137434478252121}
   - component: {fileID: 310137434478252120}
   - component: {fileID: 310137434478252123}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Velhinha
   m_TagString: Cliente
   m_Icon: {fileID: 0}

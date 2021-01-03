@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4298959408382420116}
   - component: {fileID: 4149088022357873246}
   - component: {fileID: 9043687900780298064}
+  - component: {fileID: 2513135245587381248}
   m_Layer: 0
   m_Name: Restaurante
   m_TagString: Estabelecimento
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 7a705c482b43d7940b2c46b7923fbbeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,3 +124,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 82
   variacaoEspecial: 0
+  distance: 0
+--- !u!95 &2513135245587381248
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228417548445407884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d762b2e48a3f7ee44bbd9c78564fc906, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
